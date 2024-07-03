@@ -25,7 +25,7 @@ function App() {
     <div className="App" style={{display:"flex",flexDirection:"column",alignItems:"flex-start",justifyContent:"center"}}>
       <h1>Login Page</h1>
       {result===true&&(<h3>Welcome,user!</h3>)}
-      {result===false && <form onSubmit={(e)=>handleSubmit(e) } style={{display:"flex",flexDirection:"column" ,width:"25%",alignItems:"flex-start",justifyContent:"center"}}>
+      {result===false && <form onSubmit={(e)=>handleSubmit(e) } style={{display:"flex",flexDirection:"column" ,alignItems:"flex-start",justifyContent:"center"}}>
         {error.length!==0 && <p>{error}</p>}
         <label>UserName:  <input label="UserName" value={username} placeholder="username" onChange={(e)=>setusername(e.target.value)} required/> </label>
       
