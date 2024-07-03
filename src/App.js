@@ -29,11 +29,11 @@ function App() {
       <form onSubmit={(e)=>handleSubmit(e) } style={{display:"flex" , flexDirection:"column",alignItems:"flex-start",justifyContent:"center"}}>
         {error.length!==0 && <p>{error}</p>}
         <div style={{display:"flex"}}>
-        <label htmlFor="username">UserName: </label>
-        <input type="text" value={username} placeholder="username" onChange={(e)=>setUsername(e.target.value)} required/> 
+        <label htmlFor="Username">UserName: </label>
+        <input type="text" value={username} placeholder="Username" onChange={(e)=>setUsername(e.target.value)} required/> 
         </div>
        <div style={{display:"flex"}}>
-       <label htmlFor="password">Password: </label> <input  type="password" value={password} placeholder="password" onChange={(e)=>setPassword(e.target.value)} required/>
+       <label htmlFor="Password">Password: </label> <input  type="password" value={password} placeholder="Password" onChange={(e)=>setPassword(e.target.value)} required/>
        </div>
        
        
