@@ -25,11 +25,12 @@ function App() {
     <div className="App" style={{display:"flex",flexDirection:"column",alignItems:"flex-start",justifyContent:"center"}}>
       <h1>Login Page</h1>
       {result===true&&(<h3>Welcome,user!</h3>)}
-      {result===false && <form onSubmit={(e)=>handleSubmit(e) } style={{display:"flex",flexDirection:"column" ,alignItems:"flex-start",justifyContent:"center"}}>
+      {result===false && 
+      <form onSubmit={(e)=>handleSubmit(e) } style={{display:"flex" ,alignItems:"flex-start",justifyContent:"center"}}>
         {error.length!==0 && <p>{error}</p>}
-        <label>UserName:  <input label="UserName" type="text" value={username} placeholder="username" onChange={(e)=>setUsername(e.target.value)} required/> </label>
-      
-        <label>Password:  <input label="Password" type="password" value={password} placeholder="password" onChange={(e)=>setPassword(e.target.value)} required/></label>
+        <label>UserName: </label>
+        <input type="text" value={username} placeholder="username" onChange={(e)=>setUsername(e.target.value)} required/> 
+        <label>Password: </label> <input  type="password" value={password} placeholder="password" onChange={(e)=>setPassword(e.target.value)} required/>
        
         <button type="submit">Submit</button>
       </form>}
