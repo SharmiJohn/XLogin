@@ -1,48 +1,50 @@
 import { useState } from "react";
 
+
 function App() {
-  const [username,setUsername]=useState("");
-  const[password,setPassword]=useState("");
- 
-  const[result,setResult]=useState(false);
- const [error,setError]=useState("");
-  const handleSubmit=(e)=>{
+  const [userName, setUserName] = useState("");
+  const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-      if(username==="user" && password==="password"){
-        setError("");
-        setResult(true);
 
-      }
-      else{
-        setError("Invalid username or password")
-         setResult(false);
+    if (userName === "user" && password === "password") {
+      setMessage(`Welcome, ${userName}!`);
+    } else {
+      setMessage("Invalid username or password");
+    }
+  };
 
-      }
-     
-  }
- 
   return (
-    <div className="App" style={{display:"flex",flexDirection:"column",alignItems:"flex-start",justifyContent:"center"}}>
-      <h1>Login Page</h1>
-      {result===true&&(<h3>Welcome,{username}!</h3>)}
-      {result===false && 
-      <form onSubmit={(e)=>handleSubmit(e) } style={{display:"flex" , flexDirection:"column",alignItems:"flex-start",justifyContent:"center"}}>
-        {error.length!==0 && <p>{error}</p>}
-        <div style={{display:"flex"}}>
-        <label htmlFor="Username">UserName: </label>
-        <input type="text" value={username} placeholder="Username" onChange={(e)=>setUsername(e.target.value)} required/> 
-        </div>
-       <div style={{display:"flex"}}>
-       <label htmlFor="Password">Password: </label> <input  type="password" value={password} placeholder="Password" onChange={(e)=>setPassword(e.target.value)} required/>
-       </div>
-       
-       
-        <button type="submit">Submit</button>
-      </form>}
-     
-     
+    <div className="App">
+      <div className="login-container">
+        <h1>Login Page</h1>
+        <form onSubmit={handleSubmit}>
+          <label>Username:</label>
+          <input
+            placeholder="Username"
+            type="text"
+            value={userName}
+            onChange={(e) => setUserName(e.target.value)}
+            required
+          />
+
+          <label>Password:</label>
+          <input
+            placeholder="Password"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+
+          <button type="submit">Submit</button>
+        </form>
+        {message && <p className="message">{message}</p>}
+      </div>
     </div>
   );
 }
 
-export default App;
+export default App;
