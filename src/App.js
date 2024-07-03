@@ -28,9 +28,9 @@ function App() {
       {result===false && 
       <form onSubmit={(e)=>handleSubmit(e) } style={{display:"flex" ,alignItems:"flex-start",justifyContent:"center"}}>
         {error.length!==0 && <p>{error}</p>}
-        <label>UserName: </label>
+        <label htmlFor="username">UserName: </label>
         <input type="text" value={username} placeholder="username" onChange={(e)=>setUsername(e.target.value)} required/> 
-        <label>Password: </label> <input  type="password" value={password} placeholder="password" onChange={(e)=>setPassword(e.target.value)} required/>
+        <label htmlFor="password">Password: </label> <input  type="password" value={password} placeholder="password" onChange={(e)=>setPassword(e.target.value)} required/>
        
         <button type="submit">Submit</button>
       </form>}
