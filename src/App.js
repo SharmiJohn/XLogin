@@ -1,21 +1,21 @@
 import { useState } from "react";
 
 function App() {
-  const [username,setusername]=useState("");
-  const[password,setpassword]=useState("");
-  const[data,setdata]=useState({Username:"user",Password:"password"});
-  const[result,setresult]=useState(false);
- const [error,seterror]=useState("");
+  const [username,setUsername]=useState("");
+  const[password,setPassword]=useState("");
+  const[data,setData]=useState({Username:"user",Password:"password"});
+  const[result,setResult]=useState(false);
+ const [error,setError]=useState("");
   const handleSubmit=(e)=>{
     e.preventDefault();
       if(username===data.Username && password===data.Password){
-        seterror("");
-        setresult(true);
+        setError("");
+        setResult(true);
 
       }
       else{
-        seterror("Invalid username or password")
-         setresult(false)
+        setError("Invalid username or password")
+         setResult(false)
 
       }
      
@@ -27,9 +27,9 @@ function App() {
       {result===true&&(<h3>Welcome,user!</h3>)}
       {result===false && <form onSubmit={(e)=>handleSubmit(e) } style={{display:"flex",flexDirection:"column" ,alignItems:"flex-start",justifyContent:"center"}}>
         {error.length!==0 && <p>{error}</p>}
-        <label>UserName:  <input label="UserName" value={username} placeholder="username" onChange={(e)=>setusername(e.target.value)} required/> </label>
+        <label>UserName:  <input label="UserName" type="text" value={username} placeholder="username" onChange={(e)=>setUsername(e.target.value)} required/> </label>
       
-        <label>Password:  <input label="Password" value={password} placeholder="password" onChange={(e)=>setpassword(e.target.value)} required/></label>
+        <label>Password:  <input label="Password" type="password" value={password} placeholder="password" onChange={(e)=>setPassword(e.target.value)} required/></label>
        
         <button type="submit">Submit</button>
       </form>}
